@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeno's Paradox: Achilles and the Tortoise</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      .track {
+        position: relative;
+        width: 80%;
+        height: 50px;
+        margin: 100px auto;
+        border: 2px solid black;
+      }
+
+      .runner {
+        position: absolute;
+        top: 10px;
+        padding: 5px 10px;
+        color: white;
+        font-size: 20px;
+      }
+
+      #achilles {
+        left: 0;
+        background-color: blue;
+        width: 10px;
+        height: 30px;
+      }
+
+      #tortoise {
+        left: 20%;
+        background-color: green;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="track">
+      <div id="achilles" class="runner" aria-label="Achilles">A</div>
+      <div id="tortoise" class="runner" aria-label="Tortoise">T</div>
+    </div>
+    <button id="startButton">Start Race</button>
+    <button id="resetButton">Reset Race</button>
+
+    <script>
+      document.getElementById("startButton").addEventListener("click", startRace);
+      document.getElementById("resetButton").addEventListener("click", resetRace);
+
+      let animationId;
+      let achillesPosition, tortoisePosition, iterations;
+
+      function resetRace() {
+        cancelAnimationFrame(animationId);
+        achillesPosition = 0;
+        tortoisePosition = 20;
+        iterations = 0;
+        document.getElementById("achilles").style.left = "0%";
+        document.getElementById("tortoise").style.left = "20%";
+      }
+
+      function startRace() {
+        resetRace();
+        animateRace();
+      }
+
+      function animateRace() {
+        const achilles = document.getElementById("achilles");
+        const tortoise = document.getElementById("tortoise");
+        const maxIterations = 100;
+
+        achillesPosition += (tortoisePosition - achillesPosition) / 2;
+        tortoisePosition += 0.5;
+
+        achilles.style.left = `${achillesPosition}%`;
+        tortoise.style.left = `${tortoisePosition}%`;
+
+        iterations++;
+
+        // In a better representation of the paradox, the race would go on forever
+        // but for the sake of this exercise, it stops after a certain number of iterations
+        if (iterations >= maxIterations || achillesPosition >= 95 || tortoisePosition >= 100) {
+          alert(`Race ended after ${iterations} steps. Achilles is at ${achillesPosition.toFixed(2)}% and the tortoise is at ${tortoisePosition.toFixed(2)}%.`);
+        } else {
+          animationId = requestAnimationFrame(animateRace);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 1rem;
+  color: #fff;
+  padding: 1rem;
+}
+
+.header, .footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header {
+  background-color: #87CEEB;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+}
+
+.sidebar-wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero {
+  background-color: #DDA0DD;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sidebar-nav {
+  background-color: #90EE90;
+  flex: 2;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.main-content {
+  background-color: #FFD700;
+  flex: 2;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.extra-content {
+  background-color: #A9A9A9;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.related-content-wrapper {
+  display: flex;
+  height: 15vh;
+  gap: 1rem;
+}
+
+.related-images {
+  background-color: #3CB371;
+  flex: 1.5;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.related-posts {
+  background-color: #FFC0CB;
+  flex: 0.5;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #FFA500;
+}
